@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Poy Poy"
+id = "SLES-00785"
+players = 4
+exe = "disc/SLES_007.85"
+disc = "disc/Poy Poy (Europe).cue"
+discs = ["disc/Poy Poy (Europe).cue"]
+disc_serials = ["SLES-00785"]
+load_address = "0x80010000"
+entry_pc = "0x80058788"
+text_size = "0x0008E800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Poy Poy (Europe).bin"
+cue_name = "Poy Poy (Europe).cue"
+boot_exe = "SLES_007.85"
+known_sizes = [275099328]
+known_md5 = [
+  "bb408f1393826ddbf4ee97e7ab7fccee",
+]
+known_sha1 = [
+  "9b6c3fb18f00578c2e9a345ab6a6afa2f8dd60a8",
+]
+known_crc32 = [
+  "51ee0d69",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH5552.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Poy Poy Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "98088bf8b456eae7b88c001ed3461503289b5f242f23804256184cef64814cda"

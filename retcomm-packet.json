@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "poy-poy-psx",
+  "name": "Poy Poy",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "poy-poy-recomp",
+  "rom_identity": {
+    "crc32": [
+      "51ee0d69"
+    ],
+    "md5": [
+      "bb408f1393826ddbf4ee97e7ab7fccee"
+    ],
+    "sha1": [
+      "9b6c3fb18f00578c2e9a345ab6a6afa2f8dd60a8"
+    ],
+    "disc_serials": [
+      "SLES-00785"
+    ],
+    "sizes": [
+      275099328
+    ],
+    "filenames": [
+      "Poy Poy (Europe).cue",
+      "Poy Poy (Europe).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "98088bf8b456eae7b88c001ed3461503289b5f242f23804256184cef64814cda"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH5552.BIN",
+    "profile": "SCPH5552",
+    "crc32": [
+      "d786f0b9"
+    ],
+    "md5": [
+      "32736f17079d0b2b7024407c39bd3050"
+    ],
+    "sha1": [
+      "f6bc2d1f5eb6593de7d089c425ac681d6fffd3f0"
+    ],
+    "sha256": [
+      "1faaa18fa820a0225e488d9f086296b8e6c46df739666093987ff7d8fd352c09"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH5552.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/poy-poy-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "poy-poy-*-windows-x64.zip",
+      "linux-x64": "poy-poy-*-linux-x64.zip",
+      "macos-arm64": "poy-poy-*-macos-arm64.zip",
+      "macos-x64": "poy-poy-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "poy_poy.exe",
+    "linux": "poy_poy",
+    "macos": "poy_poy"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/poy-poy-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}
